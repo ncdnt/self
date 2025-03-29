@@ -1,0 +1,160 @@
+---
+import IconArrowUpRight from "@/assets/icons/arrow-up-right.svg";
+import RootLayout from "@/layouts/root.astro";
+
+const SD_URL = "https://sleepingduck.com";
+const PROFILE_LINKS = [
+  { label: "Email", url: "mailto:nicodnt@icloud.com" },
+  { label: "LinkedIn", url: "https://linkedin.com/in/ncdnt" },
+  { label: "GitHub", url: "https://github.com/ncdnt" },
+];
+---
+
+<RootLayout>
+  <div id="container">
+    <header>
+      <h1>Nico D.</h1>
+    </header>
+    <main>
+      <p>
+        Hi 👋 I build purposeful mobile and web products. Passionate about
+        sustainable product development and dev tooling.
+      </p>
+
+      <p>
+        Currently pondering code @ <a
+          href={SD_URL}
+          target="_blank"
+          rel="noopener noreferrer">Sleeping Duck</a
+        >.
+      </p>
+
+      <ul id="links">
+        {
+          PROFILE_LINKS.map((profile) => (
+            <li>
+              <a href={profile.url} target="_blank" rel="noopener noreferrer">
+                {profile.label}{" "}
+                <IconArrowUpRight
+                  height={18}
+                  width={18}
+                  stroke="currentColor"
+                />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <hr />
+
+      <p class="paragraph">
+        Some of the projects I worked on in the past: <a
+          href="https://assemble.com.au"
+          target="_blank"
+          rel="noopener noreferrer">Assemble</a
+        >, <a
+          href="https://www.thecommons.com.au"
+          target="_blank"
+          rel="noopener noreferrer">The Commons</a
+        >, and <a
+          href="https://www.thewinecollective.com.au"
+          target="_blank"
+          rel="noopener noreferrer">The Wine Collective</a
+        >. Please contact me for my resume and for more details on my
+        experience!
+      </p>
+    </main>
+  </div>
+</RootLayout>
+
+<style>
+  #container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+
+  #container *::selection {
+    background-color: var(--color-accent);
+  }
+
+  header {
+    padding: 2rem;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2.5rem;
+    padding: 0 2rem 2rem;
+  }
+
+  main p {
+    font-size: 1.1rem;
+  }
+
+  main p.paragraph {
+    line-height: 140%;
+  }
+
+  main a {
+    color: var(--color-primary);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+  }
+
+  @media (hover: hover) {
+    main a:hover {
+      background-color: var(--color-primary);
+      color: var(--color-bg);
+      text-decoration: none;
+    }
+  }
+
+  ul#links {
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 2.5rem;
+    row-gap: 1rem;
+    list-style: none;
+  }
+
+  ul#links li {
+    display: flex;
+  }
+
+  ul#links li a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: flex;
+    vertical-align: text-bottom;
+    gap: 0.05rem;
+  }
+
+  @media screen and (min-width: 48rem) {
+    header {
+      padding: 3rem 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    main {
+      gap: 3rem;
+      padding: 0 2rem 3rem;
+    }
+
+    main p {
+      font-size: 1.2rem;
+    }
+
+    ul#links li a {
+      font-size: 1.3rem;
+    }
+  }
+</style>

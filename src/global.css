@@ -1,0 +1,58 @@
+:root {
+  --font-sans-serif: "Host Grotesk Variable", "Helvetica Neue", sans-serif;
+
+  --color-bg: rgb(245, 245, 245);
+  --color-text: rgb(74, 73, 71);
+  --color-primary: rgb(160, 71, 71);
+  /*
+   * This unusual `calc()` is here because of Safari's weird "washing" of text
+   * selection colour (which uses --color-accent). Applies to the dark-theme
+   * version, too.
+   * Ref: https://stackoverflow.com/a/71753552
+   */
+  --color-accent: rgb(230, 186, 163, calc(254 / 255));
+}
+
+/* Dark-theme variables. Can override variables defined in `:root`. */
+.dark {
+  --color-bg: rgb(19, 16, 16);
+  --color-text: rgb(216, 210, 194);
+  --color-primary: rgb(216, 162, 94);
+  --color-accent: rgb(84, 58, 20, calc(254 / 255));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans-serif);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
